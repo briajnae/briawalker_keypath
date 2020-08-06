@@ -4,6 +4,9 @@
 Hello! Welcome to my project. I designed this project using `HTML, CSS, Bootstrap 4, Google Fonts API and jQuery`. 
 With this project, users will be able to do the following: 
 
-- 
-- Search Amazon's products usin
-- calculate 
+- Recieve recent, Google Scholar articles about equilibrium prices and quantity
+- Search Amazon's products 
+- Recieve real-time data, including current product pricing and images  
+- Use real products to formulate the best solutions to acheive equilibrium pricing.
+
+I editied the calculations so that users can input their own values to calculate. 
