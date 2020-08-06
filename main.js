@@ -1,5 +1,11 @@
 $(window).on("load",function(){
 
+    $('.fa-info-circle').on('click', function(){
+       $('#results').empty();
+        $('#results').append($('.intro'));
+        getArticles();
+    })
+
     function getArticles(){
         var api_key = "926CEB575CC04A38BEF9C10A416D8AC8";
         var q = "equilibrium price";
@@ -13,7 +19,7 @@ $(window).on("load",function(){
              dataType: 'json',
              success: function(data){
                  console.log(data);
-
+                 localStorage.setItem('data', data.scholar_results);
                  data.scholar_results.map( res => {
                      const {title,link,snippet} = res;
 
@@ -21,7 +27,7 @@ $(window).on("load",function(){
                      var articleTitle = $('<h2 class=article-title>').text(title);
                      var articleSnippet = $('<p class=snippet>').text(snippet);
                      var articleLink = link;
-                     var articleButton = $('<button>').attr('src', articleLink);
+                     var articleButton = $('<a>').attr('href', articleLink);
 
                      $('.article').addClass('col-md-5')
                      $('.article').addClass('col-12')
@@ -30,9 +36,7 @@ $(window).on("load",function(){
                      articleTitle.appendTo(article)
                      articleSnippet.appendTo(article)
                      articleButton.appendTo(article)
-
-
-
+                    articleButton.text("Read More")
 
                      console.log(title);
                      console.log(link);
@@ -70,8 +74,12 @@ $.ajax({
    dataType: 'json',
    success: function(data) {   
      loading.css('display','none');
+
+   
        
      data.search_results.map(res => {
+
+        localStorage.setItem('data', data.search_results);
         
         var {title, image, price} = res;
        
@@ -132,9 +140,9 @@ function calculateOutput() {
   Qdemand = Mdemand * price + Bdemand
    
   var price = $('.calc-product-price').text();
-    console.log("A: "+price);
+
     price = parseFloat(price); 
-    console.log("B:"+price);
+
     message = "";
 
     consumption = price * Mdemand + Bdemand;
@@ -142,12 +150,12 @@ function calculateOutput() {
 
     if (consumption > supply) {
         consumption = supply;
-        message = "ABC Company canot make enough XYZ Widgets";
+        message = "Not enough supply.";
     }
 
     if (consumption <= 0) {
         consumption = 0;
-        message = "No one will buy XYZ Widgets at this price";
+        message = "Not quite. Choose a different price range";
     }
 
     /*
@@ -157,10 +165,10 @@ function calculateOutput() {
     */
 
     revenue = consumption * price;
-    // console.log(consumption);
-    // console.log(supply);
-    // console.log(revenue);
-    // console.log(message);
+    revenue = parseFloat(revenue);
+    consumption = parseFloat(consumption);
+    supply= parseFloat(supply);
+
     $(".message").text( "Product sold: "+consumption+"\n Revenue: "+revenue+"/month \n "+message);
 }
 

@@ -9,6 +9,13 @@ h1,h3{
     -webkit-animation: blink-2 2s infinite both;
     animation: blink-2 2s infinite both;
 }
+.fa-info-circle{
+    position: absolute;
+    z-index: 3;
+    margin-left: 90%;
+    -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	        animation: heartbeat 1.5s ease-in-out infinite both;
+}
 .header{
     background-color: whitesmoke;
     padding: 50px;
@@ -61,37 +68,27 @@ input::placeholder{
 input:focus{
     border-bottom: #222 solid 2px;
 }
-.site-info{
-    display: none;
-    position: fixed;
-    z-index: 3;
-    margin-left: 68%;
-    height: 100vh;
-    padding: 25px;
-   background-color:  rgb(190, 223, 238);
-   filter: drop-shadow(0px 0px 15px rgba(34, 34, 34, 0.609));
-   /* display: flex;
-   flex-direction: column; */
-  
-}
+
  
-.aside-info h4{
-    font-weight: 600;
-    font-size: 20px;
-    position: relative;
-    margin-bottom: 25px;
+.intro{
+    text-align: center;
 }
-.aside-info{
-    overflow-y: scroll;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    margin-bottom: 25px;
-    width: 95%;
-    height: 60vh;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: rgba(245, 245, 245, 0.178);
+.intro h3{
+    font-style: italic;
+    font-size: 45px;
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+.intro p{
+    font-size: 25px;
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation-delay: 0.5s;
+}
+.intro small{
+    -webkit-animation: blink-2 2s infinite both;
+    animation: blink-2 2s infinite both;
+    font-weight: 600;
 }
 #results{
     background-color: white;
@@ -471,6 +468,75 @@ input:focus{
       opacity: 1;
     }
   }
+
+@-webkit-keyframes heartbeat {
+    from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    10% {
+      -webkit-transform: scale(0.91);
+              transform: scale(0.91);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    17% {
+      -webkit-transform: scale(0.98);
+              transform: scale(0.98);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    33% {
+      -webkit-transform: scale(0.87);
+              transform: scale(0.87);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    45% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
+  @keyframes heartbeat {
+    from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    10% {
+      -webkit-transform: scale(0.91);
+              transform: scale(0.91);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    17% {
+      -webkit-transform: scale(0.98);
+              transform: scale(0.98);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    33% {
+      -webkit-transform: scale(0.87);
+              transform: scale(0.87);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    45% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
   
   
   
@@ -490,6 +556,8 @@ input:focus{
     .product-img{
         width: 100%;
     }
- 
+ .fa-info-circle{
+     margin-left: 85%;
+ }
 
   }
