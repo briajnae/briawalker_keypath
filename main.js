@@ -7,7 +7,7 @@ $(window).on("load",function(){
     })
 
     function getArticles(){
-        var api_key = "926CEB575CC04A38BEF9C10A416D8AC8";
+        var api_key = config.SECRET_KEY;
         var q = "equilibrium price";
         var search_type = "scholar";
         $.ajax({
@@ -53,7 +53,7 @@ $(window).on("load",function(){
 
     $('.header button').on('click', function() {
         var userSearch = $('.user-input').val();
-        var api_key = "61332891FFE04218957D8FA697D3E1A4";
+        var api_key = config.MY_API_KEY;
         var type = "search";
         var amazon_domain = "amazon.com";
         var search_term = userSearch;
