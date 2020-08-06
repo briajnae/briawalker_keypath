@@ -1,7 +1,51 @@
-
-
-
 $(window).on("load",function(){
+
+    function getArticles(){
+        var api_key = "926CEB575CC04A38BEF9C10A416D8AC8";
+        var q = "equilibrium price";
+        var search_type = "scholar";
+        $.ajax({
+            url: "https://api.scaleserp.com/search?api_key="+api_key+"&q="+q+"&search_type="+search_type+"",
+            type: 'GET',
+            data: {
+                format: 'json'
+             },   
+             dataType: 'json',
+             success: function(data){
+                 console.log(data);
+
+                 data.scholar_results.map( res => {
+                     const {title,link,snippet} = res;
+
+                     var article = $('<div class=article>');
+                     var articleTitle = $('<h2 class=article-title>').text(title);
+                     var articleSnippet = $('<p class=snippet>').text(snippet);
+                     var articleLink = link;
+                     var articleButton = $('<button>').attr('src', articleLink);
+
+                     $('.article').addClass('col-md-5')
+                     $('.article').addClass('col-12')
+                     $('.articles')
+                     .append(article)
+                     articleTitle.appendTo(article)
+                     articleSnippet.appendTo(article)
+                     articleButton.appendTo(article)
+
+
+
+
+                     console.log(title);
+                     console.log(link);
+                     console.log(snippet);
+                 })
+
+                 
+             }
+        })
+    }
+
+    getArticles();
+ 
 
     $('.header button').on('click', function() {
         var userSearch = $('.user-input').val();

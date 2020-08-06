@@ -6,8 +6,8 @@ h1,h3{
     font-weight: 600;
 }
 .loading{
-    -webkit-animation: bounce-top 0.9s both;
-    animation: bounce-top 0.9s both;
+    -webkit-animation: blink-2 2s infinite both;
+    animation: blink-2 2s infinite both;
 }
 .header{
     background-color: whitesmoke;
@@ -15,8 +15,20 @@ h1,h3{
     flex-direction: column;
     text-align: center;
 }
+.header h1{
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.header p{
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation-delay:0.5s ;
+}
 .search-area{
     margin-top: 3%;
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation-delay:0.7s 
 }
 button{
     border: transparent;
@@ -125,6 +137,24 @@ input:focus{
 .product button{
     margin-top: 25px;
 }
+.articles{
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.article{
+    background: rgba(34, 34, 34, 0.137);
+    color: #444;
+    padding: 25px;
+    border-radius: 5px;
+    margin: 10px;
+    height: fit-content;
+}
+.article-title{
+    font-weight: 600;
+}
 .calculator-overlay{
     background-color: whitesmoke;
     position: fixed; 
@@ -139,7 +169,7 @@ input:focus{
     justify-content: center;
     -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    /* display: none; */
+    display: none;
 }
 
 .calculator{
@@ -393,6 +423,55 @@ input:focus{
       opacity: 1;
     }
   }
+
+@-webkit-keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+ @-webkit-keyframes blink-2 {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes blink-2 {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
   
   
 
