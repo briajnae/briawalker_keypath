@@ -10,3 +10,5 @@ With this project, users will be able to do the following:
 - Use real products to formulate the best solutions to achieve equilibrium pricing.
 
 I edited the calculations so that users can input their values to calculate.
+
+
